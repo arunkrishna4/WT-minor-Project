@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .hnav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: white;
+        }
+
+        .hnav li {
+            float: right;
+        }
+
+        .hnav li a {
+            display: block;
+            color: black;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        .hnav li a:hover:not(.active) {
+            background-color: lightgrey;
+        }
+
+        .active {
+            background-color: white;
+        }
+
+        body {
+            background-color: rgb(160, 82, 45);
+        }
+
+        .walp {
+            position: relative;
+            background-image: url("./bg.jpeg");
+            background-size: cover;
+            min-height: 450px;
+            min-width: 100%;
+        }
+
+        .text {
+            position: absolute;
+            color: white;
+            font-size: 29px;
+            margin-left:25%;
+            margin-top:70px;
+        }
+
+        {% comment %} .btn {
+            background-color: brown;
+            height:20px;
+            width:100px;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size:15px;
+        }
+
+        .btn:hover {
+            background-color: #3e8e41;
+        } {% endcomment %}
+    </style>
+</head>
+<body>
+    <nav class="hnav">
+        <ul>
+            <li><a href="">Contact</a></li>
+            <li><a href=#News>Purchase</a></li>
+            <li><a href=#about>About</a></li>
+            <li><a href="./lab5.html">Bakery</a></li>
+            <li><a href=#contact>Shop</a></li>
+            <li><a href=#home>Home</a></li>
+            <li style="float:left; font-style:Cursive"><a href="">Delicio</a></li>
+        </ul>
+    </nav>
+    <div class="walp">
+        <div class="text">
+            <h1>We are Delicio<br>Ideal for every chocoholic</h1>
+        </div>
+    </div>
+</body>
+</html>

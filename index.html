@@ -7,14 +7,16 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <title>Document</title>
   <style>
-    *{
-      margin:0;
-      padding:0;
+    * {
+      margin: 0;
+      padding: 0;
     }
-    .hnav{
+
+    .hnav {
       position: sticky; /* Keep this line */
-    min-height: 80px;
+      min-height: 80px;
     }
+
     .hnav ul {
       list-style-type: none;
       margin: 0;
@@ -39,11 +41,8 @@
       text-decoration: none;
     }
 
-    li a:hover{
-        color:brown;
-    }
-    body {
-      background-color: rgb(90, 49, 30);
+    li a:hover {
+      color: brown;
     }
 
     .walp {
@@ -76,9 +75,10 @@
 
     .wel i {
       margin-top: 45px; /* Adjusted margin for icons */
-      margin-right:18px;
+      margin-right: 18px;
       float: right;
     }
+
     .fa {
       padding: 10px;
       font-size: 25px;
@@ -88,32 +88,60 @@
       margin: 5px 2px;
       border-radius: 50%;
     }
+
     .fa:hover {
       opacity: 0.7;
-  }
-  
-  .fa-facebook {
-    background: #3B5998;
-    color: white;
-  }
-  .fa-instagram {
-    background: hotpink;
-    color: white;
-  }
-
-    footer{
-      
-      margin-left:150px;
-      color:white;
     }
-    footer img{
-      margin-left: 40%;
-      height:150px;
-      width:230px;
+
+    .fa-facebook {
+      background: #3B5998;
+      color: white;
+    }
+
+    .fa-instagram {
+      background: hotpink;
+      color: white;
+    }
+
+    body{
+      background-color:burlywood;
+    }
+    h1{
+      margin-top:40px;
+    }
+
+    .c1,.c2,.c3,.c4{
+      display:inline-block;
+      padding:10px;
+      margin:40px;
+    }
+    .cards img{
+      height: 250px;
+      width: 250px;
+    }
+
+    .cards{
+      text-align: center;
+    }
+    .cards{
+      display:inline;
+      padding:30px;
     }
 
     footer {
-      display: flex; 
+      margin-left: 0px;
+      color: white;
+      background-color: rgb(90, 49, 30);
+    }
+
+    footer img {
+      margin-left: 40%;
+      height: 150px;
+      width: 230px;
+    }
+
+    footer {
+      display: flex;
       justify-content: space-evenly; 
       align-items: center;
       height:250px;
@@ -142,6 +170,26 @@
   </nav>
   <div class="walp">
   </div>
+  <h1 style="text-align:center;">Items</h1><br>
+  <h2 style="text-align:center;">Check out our menu:</h2>
+  <div class="cards">
+    <div class="c1">
+      <img src="https://handletheheat.com/wp-content/uploads/2015/03/Best-Birthday-Cake-with-milk-chocolate-buttercream-SQUARE.jpg" height:"100px">
+      <h3>Cake</h3>
+    </div>
+    <div class="c2">
+      <img src="https://handletheheat.com/wp-content/uploads/2015/03/Best-Birthday-Cake-with-milk-chocolate-buttercream-SQUARE.jpg" height:"100px">
+      <h3>Chocolate Cake</h3>
+    </div>
+    <div class="c3">
+      <img src="https://handletheheat.com/wp-content/uploads/2015/03/Best-Birthday-Cake-with-milk-chocolate-buttercream-SQUARE.jpg" height:"100px">
+      <h3>Chocolate Chip Cake</h3>
+    </div>
+    <div class="c4">
+      <img src="https://handletheheat.com/wp-content/uploads/2015/03/Best-Birthday-Cake-with-milk-chocolate-buttercream-SQUARE.jpg" height:"100px">
+      <h3>Chocolate Lava Cake</h3>
+    </div>
+  </div>
   <footer>
     <div class="f1">
     <p style="font-size:23px;">Contanct <br>with us<br></p>
@@ -154,7 +202,7 @@
       <p>__________________________</p>
     </div>
     <div>
-      <p style="font-size:23px;">Our Social Commities</p>
+      <p style="font-size:23px;">Our Social Commities</p> 
       <a href="#" class="fa fa-facebook" style="margin-top:15px;"></a>
       <a href="#" class="fa fa-instagram"></a>
     </div>
@@ -162,7 +210,6 @@
       <p style="font-size:23px;">Get In Touch</p>
       <p style="border:1px solid white;padding:10px;margin-top:15px;">CHAT | EMAIL</p>
     </div>
-
   </footer>
 </body>
 </html>

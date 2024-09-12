@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title>Document</title>
+  <style>
+    *{
+      margin:0;
+      padding:0;
+    }
+    .hnav{
+      position: sticky; /* Keep this line */
+    min-height: 80px;
+    }
+    .hnav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      height: 80px;
+      overflow: hidden;
+      background-color: white;
+      display: flex; /* Added for flexbox layout */
+      justify-content: center; /* Distribute items evenly */
+    }
+
+    .hnav li {
+      /* Adjusted margin for even spacing */
+      padding: 20px 20px;
+    }
+
+    .hnav li a {
+      display: block;
+      font-size: 20px;
+      color: black;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    li a:hover{
+        color:brown;
+    }
+    body {
+      background-color: rgb(90, 49, 30);
+    }
+
+    .walp {
+      position: relative;
+      background-image: url("./bgim.png");
+      background-size: cover;
+      height: 600px;
+      width: 100%;
+    }
+
+    .text {
+      position: absolute;
+      color: white;
+      font-size: 29px;
+      margin-left: 25%;
+      margin-top: 70px;
+    }
+
+    .wel {
+      height: 100px;
+      width: 100%;
+      background-color: white;
+    }
+
+    .wel img {
+      margin-left: 45%;
+      height: 100px;
+      width: 150px;
+    }
+
+    .wel i {
+      margin-top: 45px; /* Adjusted margin for icons */
+      margin-right:18px;
+      float: right;
+    }
+    .fa {
+      padding: 10px;
+      font-size: 25px;
+      width: 30px;
+      text-align: center;
+      text-decoration: none;
+      margin: 5px 2px;
+      border-radius: 50%;
+    }
+    .fa:hover {
+      opacity: 0.7;
+  }
+  
+  .fa-facebook {
+    background: #3B5998;
+    color: white;
+  }
+  .fa-instagram {
+    background: hotpink;
+    color: white;
+  }
+
+    footer{
+      
+      margin-left:150px;
+      color:white;
+    }
+    footer img{
+      margin-left: 40%;
+      height:150px;
+      width:230px;
+    }
+
+    footer {
+      display: flex; 
+      justify-content: space-evenly; 
+      align-items: center;
+      height:250px;
+
+    }
+     
+  </style>
+</head>
+<body>
+  <div class="wel">
+    <img src="./logo.png">
+    <i class="material-icons">person</i>
+    <i class="material-icons">favorite</i>
+    <i class="material-icons">search</i>
+  </div>
+  <nav class="hnav">
+    <ul>
+      <li><a href="">Hours & Location</a></li>
+      <li><a href=#News>About</a></li>
+      <li><a href=#about>Gallery</a></li>
+      <li><a href="./lab5.html">Flavors</a></li>
+      <li><a href=#contact>Inquires</a></li>
+      <li><a href=#home>Pre-Orders</a></li>
+      <li><a href="">Delivery & Pick Up</a></li>
+    </ul>
+  </nav>
+  <div class="walp">
+  </div>
+  <footer>
+    <div class="f1">
+    <p style="font-size:23px;">Contanct <br>with us<br></p>
+    <p style="font-size:20px;margin-top:20px;">077 2809 3718</p>
+    <address style="font-size:20px;margin-top:20px;">7 Bishopgate Street <br> Seaville <br> United Kingdom</address>
+    </div>
+    <div>
+      <p style="font-size:23px;">Recieve special offers</p>
+      <p style="font-size:20px;margin-top:20px;">Email address</p>
+      <p>__________________________</p>
+    </div>
+    <div>
+      <p style="font-size:23px;">Our Social Commities</p>
+      <a href="#" class="fa fa-facebook" style="margin-top:15px;"></a>
+      <a href="#" class="fa fa-instagram"></a>
+    </div>
+    <div>
+      <p style="font-size:23px;">Get In Touch</p>
+      <p style="border:1px solid white;padding:10px;margin-top:15px;">CHAT | EMAIL</p>
+    </div>
+
+  </footer>
+</body>
+</html>

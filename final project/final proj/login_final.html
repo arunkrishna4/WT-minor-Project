@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Login Page</title>
+  <link rel="stylesheet" href="https://unpkg.com/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <style>
+    body {
+      background-color: beige !important;
+    }
+    /* Move the box shadow to the card */
+    .card {
+      box-shadow: 0 0 15px 3px rgba(139, 69, 19, 0.6) !important; /* Adds brown shadow */
+      border-radius: 8px; /* Optional: makes the card corners slightly rounded */
+    }
+
+    /* Grayscale toggle styles */
+    body.greyscale {
+      filter: grayscale(100%);
+    }
+
+    /* Style for the toggle switch */
+    .greyscale-toggle {
+      position: relative;
+      display: inline-block;
+      width: 50px;
+      height: 25px;
+    }
+
+    .greyscale-toggle input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      transition: 0.4s;
+      border-radius: 34px;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 21px;
+      width: 21px;
+      left: 2px;
+      bottom: 2px;
+      background-color: white;
+      transition: 0.4s;
+      border-radius: 50%;
+    }
+
+    input:checked + .slider {
+      background-color: #2196F3;
+    }
+
+    input:checked + .slider:before {
+      transform: translateX(24px);
+    }
+
+    /* Align toggle container to right bottom */
+    .greyscale-toggle-container {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 999;
+      background-color: #fff;
+      padding: 10px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Grayscale toggle switch (positioned at the right bottom) -->
+  <div class="greyscale-toggle-container">
+    <label for="greyscale-toggle">ColorBlindness Mode</label><br>
+    <label class="greyscale-toggle" style="margin-left:60px">
+      <input type="checkbox" id="greyscale-toggle">
+      <span class="slider"></span>
+    </label>
+  </div>
+
+  <!-- Login Section -->
+  <section class="p-3 p-md-4 p-xl-5">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-12 col-xxl-9">
+          <div class="card shadow-sm"> <!-- Shadow is now on the card -->
+            <div class="row g-0">
+              <div class="col-12 col-md-6">
+                <img class="img-fluid rounded-start w-100 h-100 object-fit-cover" loading="lazy" src="./img/login.jpg">
+              </div>
+              <div class="col-12 col-md-6 d-flex align-items-center justify-content-center">
+                <div class="col-12 col-lg-11 col-xl-10">
+                  <div class="card-body p-3 p-md-4 p-xl-5">
+                    <div class="row">
+                      <div class="col-12">
+                        <div class="mb-5">
+                          <div class="text-center mb-4">
+                            <a href="#!">
+                                <img src="./img/logo_used2.jpeg" alt="Profile Picture" height="120px" width="120px" class="profile-image"> 
+                            </a>
+                          </div>
+                          <h4 class="text-center">Welcome back you've been missed!</h4>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-12"></div>
+                    </div>
+                      <div class="row gy-3 overflow-hidden">
+                        <div class="col-12">
+                          <div class="form-floating mb-3">
+                            <input type="email" class="form-control" name="email" id="loginEmail" placeholder="name@example.com">
+                            <label for="email" class="form-label">Email</label>
+                            <div id="loginEmailError" class="login-error-message">Email is required.</div>
+                          </div>
+                        </div>
+                        <div class="col-12">
+                          <div class="form-floating mb-3">
+                            <input type="password" class="form-control" name="password" id="loginPassword" value="" placeholder="Password">
+                            <label for="password" class="form-label">Password</label>
+                            <div id="loginPasswordError" class="login-error-message">Password is required.</div>
+                          </div>
+                        </div>
+                        
+                        <div class="col-12">
+                          <div class="d-grid">
+                            <button class="btn btn-dark btn-lg" onclick="handleLogin()">Login now</button>
+                          </div>
+                        </div>
+                      </div>
+                    <div class="row">
+                      <div class="col-12">
+                        <div class="d-flex gap-2 gap-md-4 flex-column flex-md-row justify-content-md-center mt-5">
+                          <a href="./main_sign_in.html" class="link-secondary text-decoration-none">Create new account</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Toggle grayscale mode
+    document.getElementById('greyscale-toggle').addEventListener('change', function() {
+      if (this.checked) {
+        document.body.classList.add('greyscale');
+      } else {
+        document.body.classList.remove('greyscale');
+      }
+    });
+
+    // Login form validation and processing
+    const errorElementx = document.getElementById('loginPasswordError');
+    errorElementx.style.color = 'rgba(0, 0, 0, 0)';
+    const errorElementy = document.getElementById('loginEmailError');
+    errorElementy.style.color = 'rgba(0, 0, 0, 0)';
+
+    function handleLogin() {
+      const email = document.getElementById('loginEmail').value.trim();
+      const password = document.getElementById('loginPassword').value.trim();
+
+      clearErrors(['loginEmail', 'loginPassword']);
+
+      // Retrieve user data from localStorage
+      const storedUser = JSON.parse(localStorage.getItem('user'));
+
+      // Check if user exists in localStorage
+      if (!storedUser) {
+        displayError('loginEmail', 'No account found.');
+        return;
+      }
+
+      // Validate email and password
+      if (email !== storedUser.email) {
+        displayError('loginEmail', 'Incorrect email.');
+        return;
+      }
+      if (password !== storedUser.password) {
+        displayError('loginPassword', 'Incorrect password.');
+        return;
+      }
+
+      // Store user data in sessionStorage for session management
+      sessionStorage.setItem('userSession', JSON.stringify(storedUser));
+
+      // Redirect to profile page
+      window.location.href = 'index.html';
+    }
+
+    // Function to display errors
+    function displayError(inputId, message) {
+      const inputElement = document.getElementById(inputId);
+      const errorElement = document.getElementById(inputId + 'Error');
+      inputElement.classList.add('input-error');
+      errorElement.style.display = 'block';
+      errorElement.textContent = message;
+      errorElement.style.color = 'red';
+
+      // Remove error on focus
+      inputElement.addEventListener('focus', function () {
+        inputElement.classList.remove('input-error');
+        errorElement.style.color = 'rgba(0, 0, 0, 0)';
+      });
+    }
+
+    // Function to clear previous errors
+    function clearErrors(inputIds) {
+      inputIds.forEach(inputId => {
+        const inputElement = document.getElementById(inputId);
+        const errorElement = document.getElementById(inputId + 'Error');
+        inputElement.classList.remove('input-error');
+        errorElement.style.color = 'rgba(0, 0, 0, 0)';
+      });
+    }
+  </script>
+</body>
+</html>

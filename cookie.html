@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Cake Gallery</title>
+        <!-- Favicon -->
+        <link href="img/favicon.ico" rel="icon">
+
+        <!-- Google Web Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet"> 
+    
+        <!-- Icon Font Stylesheet -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    
+        <!-- Libraries Stylesheet -->
+        <link href="lib/animate/animate.min.css" rel="stylesheet">
+        <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    
+        <!-- Customized Bootstrap Stylesheet -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+    
+        <!-- Template Stylesheet -->
+        <link href="css/style.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 1em 0;
+            background-color: beige;
+            display: flex;
+            justify-content: flex-end;
+            gap: 1em;
+        }
+
+        nav li a {
+            color: black;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        nav li a:hover:not(.active) {
+            background-color: lightgrey;
+        }
+
+        .container {
+            max-width: 90vw;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2em;
+            margin: 8em auto;
+        }
+
+        .card-wrapper {
+            position: relative;
+            width: 16em;
+            height: 18em;
+            overflow: hidden;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .card {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: antiquewhite;
+            color: #7B3F00;
+            z-index: 0;
+            font-family: 'Times New Roman', Times, serif;
+            transform: translateY(-100%);
+            transition: transform 0.5s ease;
+        }
+
+        p {
+            font-size: 1.2em;
+            line-height: 1.5;
+            text-align: center;
+            padding: 0.5em;
+        }
+
+        .card-wrapper:hover img {
+            transform: scale(1.05);
+        }
+
+        .card-wrapper:hover .card {
+            transform: translateY(0);
+        }
+
+        .color-blind-mode img {
+            filter: grayscale(100%);
+        }
+        .color-blind-mode .card{
+            background-color: black;
+        }
+
+        .color-blind-mode * {
+            color: white !important;
+        }
+
+        .color-blind-mode a:hover {
+            text-decoration: underline;
+        }
+
+        /* Color Blind Mode Toggle Button */
+        .color-blind-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            border: none;
+            cursor: pointer;
+            background-color: transparent;
+            background-color: white;
+            box-shadow: 1px 1px 10px white;
+            border-radius: 50%;
+        }
+
+        .color-blind-toggle:hover {
+            transform: scale(1.3);
+        }
+
+        .navbar {
+        display: fixed;
+        background-color: #1E1916;
+        }
+
+           @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .card {
+                font-size: 0.9em;
+            }
+        }
+
+    </style>
+</head>
+<body>
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top py-lg-0 px-lg-5">
+            <a href="index.html" class="navbar-brand ms-4 ms-lg-0">
+                <h1 class="text-primary m-0">Baked Bliss</h1>
+            </a>
+            <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav mx-auto p-4 p-lg-0">
+                    <a href="index.html" class="nav-item nav-link active" tabindex="1" accesskey="h">Home</a>
+                    <a href="#about" class="nav-item nav-link" tabindex="2" accesskey="a">About</a>
+                    <a href="review.html" class="nav-item nav-link" tabindex="3" accesskey="r">Review</a>
+                    <a href="FeedBack.html" class="nav-item nav-link" tabindex="4" accesskey="f">FeedBack</a>
+                </div>
+                <div class=" d-none d-lg-flex">
+                    <div class="flex-shrink-0 btn-lg-square border border-light rounded-circle">
+                        <i class="fa fa-phone text-primary"></i>
+                    </div>
+                    <div class="ps-3">
+                        <small class="text-primary mb-0">Call Us</small>
+                        <p class="text-light fs-5 mb-0">9989660523</p>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    <div class="container">
+        <div class="card-wrapper">
+            <img src="https://cdn.shopify.com/s/files/1/0024/1152/8253/products/img-cake-9_d25d99c5-842e-4fed-b4ef-bf94d6c1e850_grande.jpg?v=1524322690" alt="Black Forest Cake">
+            <div class="card">
+                <p>Black Forest<br>Price: $500</p>
+            </div>
+        </div>
+        <div class="card-wrapper">
+            <img src="https://th.bing.com/th/id/OIP.RlZUlOAxIjH1g_7feYU1QQAAAA?rs=1&pid=ImgDetMain" alt="Coffee Cake">
+            <div class="card">
+                <p>Coffee Cake<br>Price: $400</p>
+            </div>
+        </div>
+        <div class="card-wrapper">
+            <img src="https://bkmedia.bakingo.com/sq-round-dark-chocolate-valentine-love-cake-cake2572choc-A_2.jpg" alt="Classic Chocolate">
+            <div class="card">
+                <p>Classic Chocolate<br>Price: $200</p>
+            </div>
+        </div>
+        <div class="card-wrapper">
+            <img src="https://th.bing.com/th/id/R.f9250f495bdff22868f767266a9f86dd?rik=JAE0YiGGKDjrJg&riu=http%3a%2f%2fhamperlicious.co.za%2fwp-content%2fuploads%2f2018%2f05%2fDark-Chocolate-Lindt-Cake.jpg&ehk=Sqfda5R67Q7ARnLP3HH5toP6HWLksJmZs9c26P%2bc7Fc%3d&risl=&pid=ImgRaw&r=0" alt="Sponge Cake">
+            <div class="card">
+                <p>Sponge Cake<br>Price: $200.50</p>
+            </div>
+        </div>
+        <div class="card-wrapper">
+            <img src="https://th.bing.com/th/id/OIP.q6eInpgQVlnAXO2jjAkOrgAAAA?rs=1&pid=ImgDetMain" alt="Strawberry Delight">
+            <div class="card">
+                <p>Strawberry Delight<br>Price: $600</p>
+            </div>
+        </div>
+        <div class="card-wrapper">
+            <img src="https://www.tasteofhome.com/wp-content/uploads/2018/01/Pumpkin-Torte_EXPS_SDON17_28516_B06_28_5b-1.jpg?resize=350" alt="Vanilla Cake">
+            <div class="card">
+                <p>Vanilla Cake<br>Price: $300</p>
+            </div>
+        </div>
+        <div class="card-wrapper">
+            <img src="https://pinchmysalt.com/wp-content/uploads/2010/11/Praline-Pumpkin-Cake-Pinterest-1.jpg" alt="Rainbow Cake">
+            <div class="card">
+                <p>Rainbow Cake<br>Price: $700</p>
+            </div>
+        </div>
+        <div class="card-wrapper">
+            <img src="https://i.pinimg.com/originals/d2/fb/49/d2fb4964eef09c94e3cf29de861a8886.png" alt="Chocolate Delight">
+            <div class="card">
+                <p>Chocolate Delight<br>Price: $800</p>
+            </div>
+        </div>
+    </div>
+    <button class="color-blind-toggle" onclick="toggleColorBlindMode()"><img width="1rem" height="1rem" src="https://img.icons8.com/ios-filled/50/blind.png" alt="blind"/></button>
+    <div class="container-fluid bg-dark text-light footer my-6 mb-0 py-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-light mb-4">Office Address</h4>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Manipal Higher Acedemy of Education,Manipal</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>9989660523</p>
+                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>BakedBliss@example.com</p>
+                    <div class="d-flex pt-2">
+                        <a class="btn btn-square btn-outline-light rounded-circle me-1" href=""><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-square btn-outline-light rounded-circle me-1" href=""><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-square btn-outline-light rounded-circle me-1" href=""><i class="fab fa-youtube"></i></a>
+                        <a class="btn btn-square btn-outline-light rounded-circle me-0" href=""><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                    <br>
+                    <div class="col-lg-3 col-md-5">
+                        <h4 class="text-light mb-3">Accessibility</h4>
+                        <div class="d-flex flex-column">
+                            <button class="btn btn-primary mb-2" onclick="speakText()">Read Aloud</button>
+                            <button class="btn btn-danger" onclick="stopSpeech()">Stop</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-light mb-4">Quick Links</h4>
+                    <a class="btn btn-link" href="">About Us</a>
+                    <a class="btn btn-link" href="">Our Services</a>
+                    <a class="btn btn-link" href="">Terms & Condition</a>
+                    <a class="btn btn-link" href="">Support</a>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-light mb-4">Quick Links</h4>
+                    <a class="btn btn-link" href="">About Us</a>
+                    <a class="btn btn-link" href="">Contact Us</a>
+                    <a class="btn btn-link" href="">Our Services</a>
+                    <a class="btn btn-link" href="">Terms & Condition</a>
+                    <a class="btn btn-link" href="">Support</a>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-light mb-4">Photo Gallery</h4>
+                    <div class="row g-2">
+                        <div class="col-4">
+                            <img class="img-fluid bg-light rounded p-1" src="img/product-1.jpg" alt="Image">
+                        </div>
+                        <div class="col-4">
+                            <img class="img-fluid bg-light rounded p-1" src="img/product-2.jpg" alt="Image">
+                        </div>
+                        <div class="col-4">
+                            <img class="img-fluid bg-light rounded p-1" src="img/product-3.jpg" alt="Image">
+                        </div>
+                        <div class="col-4">
+                            <img class="img-fluid bg-light rounded p-1" src="img/product-2.jpg" alt="Image">
+                        </div>
+                        <div class="col-4">
+                            <img class="img-fluid bg-light rounded p-1" src="img/product-3.jpg" alt="Image">
+                        </div>
+                        <div class="col-4">
+                            <img class="img-fluid bg-light rounded p-1" src="img/product-1.jpg" alt="Image">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+    <script>
+        function speakText() {
+            let text = document.body.innerText; // Get the text from the body
+            let speech = new SpeechSynthesisUtterance(text); // Create speech object
+            speech.lang = 'en-US'; // Set language to English
+
+            // Set voice parameters (optional)
+            speech.pitch = 1;  // Pitch level (0-2)
+            speech.rate = 1;   // Speaking speed (0.1-10)
+            speech.volume = 1; // Volume level (0-1)
+
+            window.speechSynthesis.speak(speech); // Speak the text
+        }
+
+        // Stop Speech
+        function stopSpeech() {
+            window.speechSynthesis.cancel(); // Stop any ongoing speech
+        }
+        function toggleColorBlindMode() {
+            document.body.classList.toggle("color-blind-mode");
+        }
+    </script>
+</body>
+</html>

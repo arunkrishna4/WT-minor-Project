@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Document</title>
+  <link rel="stylesheet" href="https://unpkg.com/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <style>
+    body {
+      background-color: beige !important;
+    }
+    /* Move the box shadow to the card */
+    .card {
+      box-shadow: 0 0 15px 3px rgba(139, 69, 19, 0.6) !important; /* Adds brown shadow */
+      border-radius: 8px; /* Optional: makes the card corners slightly rounded */
+    }
+
+    /* Grayscale toggle styles */
+    body.greyscale {
+      filter: grayscale(100%);
+    }
+
+    /* Style for the toggle switch */
+    .greyscale-toggle {
+      position: relative;
+      display: inline-block;
+      width: 50px;
+      height: 25px;
+    }
+
+    .greyscale-toggle input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      transition: 0.4s;
+      border-radius: 34px;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 21px;
+      width: 21px;
+      left: 2px;
+      bottom: 2px;
+      background-color: white;
+      transition: 0.4s;
+      border-radius: 50%;
+    }
+
+    input:checked + .slider {
+      background-color: #2196F3;
+    }
+
+    input:checked + .slider:before {
+      transform: translateX(24px);
+    }
+
+    /* Align toggle container to right bottom */
+    .greyscale-toggle-container {
+      position: fixed;
+      top: 20px; /* Adjust the distance from the bottom */
+      right: 20px;  /* Adjust the distance from the right */
+      z-index: 999; /* Ensure it's on top */
+      background-color: #fff; /* Optional background for better visibility */
+      padding: 10px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Grayscale toggle switch (positioned at the right bottom) -->
+  <div class="greyscale-toggle-container">
+    <label for="greyscale-toggle">ColorBlindness Mode</label><br>
+    <label class="greyscale-toggle" style="margin-left:60px">
+      <input type="checkbox" id="greyscale-toggle">
+      <span class="slider"></span>
+    </label>
+  </div>
+
+  <!-- Signup Form -->
+  <section class="p-3 p-md-4 p-xl-5">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-12 col-xxl-10">
+          <div class="card shadow-sm"> <!-- Shadow is now on the card -->
+            <div class="row g-0">
+              <div class="col-12 col-md-6">
+                <img class="img-fluid rounded-start w-100 h-100 object-fit-cover" loading="lazy" src="./img/login.jpg">
+              </div>
+              <div class="col-12 col-md-6 d-flex align-items-center justify-content-center">
+                <div class="col-12 col-lg-11 col-xl-10">
+                  <div class="card-body p-3 p-md-4 p-xl-5">
+                    <div class="row">
+                      <div class="col-12">
+                        <div class="mb-5">
+                          <div class="text-center mb-4">
+                            <a href="#!">
+                              <img src="./img/logo_used2.jpeg" alt="Profile Picture"  height="120px" width="120px"> 
+                            </a>
+                          </div>
+                          <h4 class="text-center">Welcome!</h4>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-12"></div>
+                    </div>
+                    <form onsubmit="handleFormValidation(event)">
+                      <div class="col-12">
+                        <div class="form-floating mb-3">
+                          <input type="text" class="form-control" name="name" id="name" placeholder="Name">
+                          <label for="name" class="form-label">Name</label>
+                          <div id="nameError" class="error-message"></div>
+                        </div>
+                      </div>
+                      <div class="col-12">
+                        <div class="form-floating mb-3">
+                          <input type="number" class="form-control" name="number" id="number" placeholder="Number">
+                          <label for="number" class="form-label">Number</label>
+                          <div id="numberError" class="error-message"></div>
+                        </div>
+                      </div>
+                      <div class="col-12">
+                        <div class="form-floating mb-3">
+                          <textarea class="form-control" name="address" id="address" placeholder="Address" style="height: 70px;"></textarea>
+                          <label for="address" class="form-label">Address</label>
+                          <div id="addressError" class="error-message"></div>
+                        </div>
+                      </div>
+                      <div class="col-12">
+                        <div class="form-floating mb-3">
+                          <input type="email" class="form-control" name="email" id="email" placeholder="name@example.com">
+                          <label for="email" class="form-label">Email</label>
+                          <div id="emailError" class="error-message"></div>
+                        </div>
+                      </div>
+                      <div class="col-12">
+                        <div class="form-floating mb-3">
+                          <input type="password" class="form-control" name="password" id="password" placeholder="Password">
+                          <label for="password" class="form-label">Enter Password</label>
+                          <div id="passwordError" class="error-message"></div>
+                        </div>
+                      </div>
+                      <div class="col-12">
+                        <div class="form-floating mb-3">
+                          <input type="password" class="form-control" name="cpassword" id="cpassword" placeholder="Confirm Password">
+                          <label for="cpassword" class="form-label">Confirm Password</label>
+                          <div id="cpasswordError" class="error-message"></div>
+                        </div>
+                      </div>
+                      <div class="col-12">
+                        <div class="d-grid">
+                          <button class="btn btn-dark btn-lg" type="submit">Sign in now</button>
+                        </div>
+                      </div>
+                    </form>                    
+                    <div class="row">
+                      <div class="col-12">
+                        <div class="d-flex gap-2 gap-md-4 flex-column flex-md-row justify-content-md-center mt-5">
+                          <a href="./login_final.html" class="link-secondary text-decoration-none">Already have an account?</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Toggle grayscale mode
+    document.getElementById('greyscale-toggle').addEventListener('change', function() {
+      if (this.checked) {
+        document.body.classList.add('greyscale');
+      } else {
+        document.body.classList.remove('greyscale');
+      }
+    });
+
+    // Form validation
+    function handleFormValidation(event) {
+      event.preventDefault(); // Prevent form submission for validation
+      let isValid = true;
+
+      // Clear any existing errors
+      clearErrors(['name', 'number', 'address', 'email', 'password', 'cpassword']);
+
+      // Get values of all input fields
+      const name = document.getElementById('name').value.trim();
+      const number = document.getElementById('number').value.trim();
+      const address = document.getElementById('address').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value.trim();
+      const cpassword = document.getElementById('cpassword').value.trim();
+
+      // Check if fields are empty or invalid, and display corresponding error messages
+      if (name === "") {
+        displayError('name', 'Name is required.');
+        isValid = false;
+      }
+      if (number === "") {
+        displayError('number', 'Number is required.');
+        isValid = false;
+      }
+      if (address === "") {
+        displayError('address', 'Address is required.');
+        isValid = false;
+      }
+
+      // Email validation with proper regex
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (email === "") {
+        displayError('email', 'Email is required.');
+        isValid = false;
+      } else if (!emailRegex.test(email)) {
+        displayError('email', 'Valid email is required.');
+        isValid = false;
+      }
+
+      // Password checks
+      const passwordRegex = /^(?=.*[A-Z])(?=.*[!@#$%^&*]).{6,}$/;
+      if (password === "") {
+        displayError('password', 'Password is required.');
+        isValid = false;
+      } else if (!passwordRegex.test(password)) {
+        displayError('password', 'Password must have at least 1 uppercase letter and 1 special character and 6 charactes min.');
+        isValid = false;
+      }
+
+      if (cpassword === "") {
+        displayError('cpassword', 'Please confirm your password.');
+        isValid = false;
+      } else if (password !== cpassword) {
+        displayError('cpassword', 'Passwords do not match.');
+        isValid = false;
+      }
+
+      // Save data to local storage if all fields are valid
+      if (isValid) {
+        const userData = { name, number, address, email, password };
+        localStorage.setItem('user', JSON.stringify(userData)); // Store data in localStorage
+        window.location.href = 'login_final.html'; // Redirect to login page after sign-up
+      }
+    }
+
+    function displayError(inputId, message) {
+      const errorElement = document.getElementById(inputId + 'Error');
+      errorElement.textContent = message;
+      errorElement.style.color = 'red';
+    }
+
+    function clearErrors(inputIds) {
+      inputIds.forEach(inputId => {
+        const errorElement = document.getElementById(inputId + 'Error');
+        errorElement.textContent = ''; // Clear error message
+      });
+    }
+  </script>
+
+</body>
+</html>
